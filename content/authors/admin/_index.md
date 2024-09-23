@@ -1,10 +1,10 @@
 ---
 # Display name
-title: Simon Gravelle
+title: Erfan Khalaji
 
 # Full name (for SEO)
-first_name: Simon
-last_name: Gravelle
+first_name: Erfan
+last_name: Khalaji
 
 # Status emoji
 status:
@@ -14,12 +14,12 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: CNRS research scientist, MSCA Fellow
+role: Artificial Intelligence Scientist
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: LiPhy, UGA, CNRS
-    url: https://liphy.univ-grenoble-alpes.fr/
+  - name: Croptimistics, SK, Edmonton
+    url: https://swatmaps.com/
 
 # Short bio (displayed in user profile at end of posts)
 bio: I am a computer physicist in soft matter and fluids at interfaces at LIPhy (UGA/CNRS) in Grenoble, France.
