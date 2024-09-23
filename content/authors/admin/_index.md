@@ -22,20 +22,25 @@ organizations:
     url: https://swatmaps.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: I am a computer physicist in soft matter and fluids at interfaces at LIPhy (UGA/CNRS) in Grenoble, France.
-
+bio: 
 # Interests to show in About widget
 interests:
-  - Soft Matter
-  - Fluid at interface
-  - Computer simulations
+  - Reinforcement Learning
+  - Computer Vision and NLP
+  - Psychology and Cognitive Science
 
 # Education to show in About widget
 education:
   courses:
-    - course: PhD in Nanofluidics
-      institution: University of Lyon (France)
-      year: 2015
+    - course: MSc in Computing Science
+      institution: University of Alberta, Canada
+      year: 2023
+    - course: MSc in Computer Engineering
+      institution: Middle East Technical University, Turkey
+      year: 2021
+    - course: BSc in Software Engineering
+      institution: Arak University, Iran
+      year: 2018
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
@@ -45,17 +50,17 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: mailto:simon.gravelle@live.fr
+    link: mailto:ekhalaji@gmail.com
   - icon: twitter
     icon_pack: fab
-    link: https://twitter.com/GravelleSimon
+    link: https://x.com/erfan_khalaji
     label: Follow me on Twitter
   - icon: graduation-cap
     icon_pack: fas
-    link: https://scholar.google.com/citations?user=9fD2JlYAAAAJ&hl=fr
+    link: https://scholar.google.com/citations?user=IUXPFNEAAAAJ&hl=en&oi=ao
   - icon: github
     icon_pack: fab
-    link: https://github.com/simongravelle
+    link: https://github.com/erfan-khalaji
     display:
       header: true
   - icon: cv
@@ -66,24 +71,8 @@ highlight_name: true # Highlight the author in author lists? (true/false)
 ---
 **About me**
 
-I am a [CNRS](https://www.cnrs.fr/) researcher at
-[LIPhy](https://liphy.univ-grenoble-alpes.fr/) in Grenoble, France. I use
-molecular simulations to study fluids at interfaces and soft matter systems.
-
-**Open Source and Outreach Activities**
-
-I share all the code developed as part of my research as open source. You can
-find it in my [GitHub](https://github.com/simongravelle/) repository. 
-Additionally, see the following resources:
-
-- [MAICoS](https://maicos-devel.gitlab.io/maicos/index.html), a Python toolkit 
-  for analyzing confined molecular simulations
-- [LAMMPS Tutorials](https://lammpstutorials.github.io), tutorials for 
-  beginners using LAMMPS
-- [GROMACS Tutorials](https://gromacstutorials.github.io), tutorials for 
-  beginners using GROMACS
-- [MDCourse](https://mdcourse.github.io), a Python course 
-  on molecular simulations
-- [Gallery of Animations](https://www.youtube.com/@SimonGravelle) and 
-  [Molecular Art](https://simongravelle.github.io/gallery/), high-resolution 
-  renderings of molecules
+Erfan has over 7 years of experience in artificial intelligence. He is currently an AI scientist at Croptimistic,
+where he applies AI in precision agriculture to enhance farming efficiency and sustainability. His expertise spans various domains,
+including medical applications, where he has utilized AI to address complex healthcare challenges.
+Erfan also has a teaching background, sharing his knowledge and passion for AI with students and professionals alike. In his free time,
+he enjoys bird watching and photography.
