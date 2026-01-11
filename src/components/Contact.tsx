@@ -1,4 +1,4 @@
-import { contactInfo } from '@/lib/data'
+import { contactInfo, maskPhone, maskEmail } from '@/lib/data'
 
 export default function Contact() {
   return (
@@ -53,8 +53,9 @@ export default function Contact() {
                   <a
                     href={`tel:${contactInfo.phone}`}
                     className="text-gray-900 font-semibold hover:text-primary-600 transition-colors"
+                    title={contactInfo.phone}
                   >
-                    {contactInfo.phone}
+                    {maskPhone(contactInfo.phone)}
                   </a>
                 </div>
               </div>
@@ -78,8 +79,9 @@ export default function Contact() {
                   <a
                     href={`mailto:${contactInfo.email}`}
                     className="text-gray-900 font-semibold hover:text-primary-600 transition-colors"
+                    title={contactInfo.email}
                   >
-                    {contactInfo.email}
+                    {maskEmail(contactInfo.email)}
                   </a>
                 </div>
               </div>

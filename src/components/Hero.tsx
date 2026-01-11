@@ -25,13 +25,13 @@ export default function Hero() {
               Erfan Khalaji
             </h1>
             <p className="text-2xl md:text-3xl text-primary-600 font-semibold mb-6">
-              AI & ML Scientist | Data Scientist | ML Engineer
+              Applied AI Scientist | ML Engineer
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl">
               {professionalSummary}
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center md:justify-start">
               <a
                 href={`mailto:${contactInfo.email}`}
@@ -49,25 +49,6 @@ export default function Hero() {
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 Get in Touch
-              </a>
-              <a
-                href={contactInfo.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 bg-white text-primary-600 font-semibold rounded-lg border-2 border-primary-600 hover:bg-primary-50 transition-colors shadow-lg hover:shadow-xl"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Download Resume
               </a>
             </div>
 

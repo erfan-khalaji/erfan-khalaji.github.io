@@ -1,0 +1,48 @@
+﻿Erfan Khalaji
+Edmonton, AB | 780-982-2848 | ekhalaji@gmail.com | LinkedIn | GitHub
+PROFESSIONAL SUMMARY
+ML Engineer with 4+ years of experience designing, optimizing, and deploying production-grade machine learning systems, including Vision-Language Models (VLMs), Large Language Models (LLMs), and Reinforcement Learning from Human Feedback (RLHF). Strong expertise in Python and cloud platforms (AWS, GCP), with a focus on building trustworthy AI solutions that convert complex multimodal data into actionable insights across agriculture and biomedicine.
+
+
+CORE SKILLS
+* Programming & GPU Computing: Python, SQL, C++, CUDA
+* MLOps & Cloud: Docker, Airflow, MLflow, Kubeflow, CI/CD, AWS, GCP, Azure, Git
+* Natural Language Processing: Text processing, embeddings, transformer models, LLMs
+* Computer Vision: Object detection, image segmentation, image classification, VLMs
+* Data Science & Analytics: Data wrangling, data visualization, statistical modeling, feature engineering
+* ML Libraries & Frameworks: PyTorch, TensorFlow, NumPy, SciPy, scikit-learn, OpenAI Gym (RL), LangChain
+
+
+EXPERIENCE
+AI & Data Scientist
+Croptimistic Technology, Edmonton, Canada | Apr 2024 – Present
+* Lead Development of large-scale multi-modal machine learning systems for precision agriculture applications
+* Productionized end-to-end ML pipelines processing 50M+ images monthly, supporting 288K+ daily inferences
+* Achieved 91–93% precision across various multi-modal ML tasks systematic experimentation and optimization
+* Implemented scalable, cloud-native MLOps workflows using Python, PyTorch, Docker, MLflow, and AWS/GCP, following industry-standard practices for model versioning, deployment, and monitoring
+* Collaborated with cross-functional teams to translate complex multimodal data into actionable insights
+Machine Learning Scientist
+Alberta Machine Intelligence Institute, Edmonton, Canada | Sep 2023 – Apr 2024
+* Developed object density estimation models to support data-driven decision-making and forecasting
+* Built end-to-end proof-of-concept pipelines and transitioned models into production-ready systems
+* Collaborated with cross-functional teams across data engineering, modeling, and deployment workflows
+* Achieved 87% R^2 and RMSE of 3.56  through model optimization and feature engineering
+* Enabled new data-driven revenue opportunities and improved operational forecasting capabilities
+Machine Learning Researcher
+Department of Radiology, UofA Hospital, Edmonton, Canada | Jan 2023 – Sep 2023
+* Adapted and applied deep learning models for upper airway and adenoid segmentation in medical imaging data
+* Developed and evaluated computer vision pipelines for anatomical structure segmentation in clinical datasets
+* Collaborated with cross-disciplinary clinical teams to align model development with medical requirements
+* Contributed to the annotation and curation of large-scale medical image datasets for supervised ML workflows
+Data Scientist
+Journey Education, Edmonton, Canada | Jan 2022 – Jan 2023
+* Led data collection, preprocessing, and QA workflows, including outlier detection and data validation
+* Developed sentiment analysis pipelines to extract actionable insights from customer feedback
+* Applied natural language processing techniques to support product and user-experience decision-making
+* Delivered live coding sessions and technical workshops to communicate practical ML workflows
+
+
+EDUCATION
+MSc in Computing Science
+University of Alberta | Edmonton, AB, Canada
+GPA: 3.9 / 4.0
