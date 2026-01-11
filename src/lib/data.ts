@@ -162,7 +162,7 @@ export function maskEmail(email: string): string {
 }
 
 export const professionalSummary =
-  "Applied AI Scientist with 4+ years of experience designing, optimizing, and deploying production-grade machine learning systems, including Vision-Language Models (VLMs), Large Language Models (LLMs), and Reinforcement Learning from Human Feedback (RLHF). Strong expertise in Python and cloud platforms (AWS, GCP), with a focus on building trustworthy AI solutions that convert complex multimodal data into actionable insights across agriculture and biomedicine.";
+  "Applied AI Scientist with 7+ years of experience designing, optimizing, and deploying production-grade machine learning systems, including Vision-Language Models (VLMs), Large Language Models (LLMs), and Reinforcement Learning from Human Feedback (RLHF). Strong expertise in Python and cloud platforms (AWS, GCP), with a focus on building trustworthy AI solutions that convert complex multimodal data into actionable insights across agriculture and biomedicine.";
 
 export const experienceBreakdown = {
   total: "7+",
