@@ -1,191 +1,230 @@
-export interface Job {
-  title: string;
-  company: string;
-  location: string;
-  period: string;
-  description: string[];
+export const profile = {
+  name: 'Erfan Khalaji',
+  title: 'AI Scientist',
+  location: 'Edmonton, AB · Canada',
+  email: 'ekhalaji@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/erfan-khalaji',
+  github: 'https://github.com/erfan-khalaji',
+  tagline:
+    'AI Scientist shipping production-scale generative AI, computer vision, and NLP — where research rigor and real-world impact both matter.',
+  summary:
+    "AI Scientist with 7+ years of experience researching, architecting, and deploying large-scale ML systems across generative AI, computer vision, and NLP. Production deployments and research span agriculture, healthcare, and human-computer interaction for accessibility, applying ML to problems where research rigor and real-world impact both matter. Track record includes shipping a 2026 U.S. patent-awarded AI product operating at 1.5M+ acres and 50M+ inferences/month, peer-reviewed publications, and a Google Scholarship for Web Accessibility (W4A 2021) for ML research advancing accessibility for users on the autism spectrum.",
 }
 
-export interface SkillCategory {
-  name: string;
-  icon: string;
-  skills: string[];
+export const heroStats = [
+  { value: '7+', label: 'Years in ML', sub: 'Research → production' },
+  { value: '1.5M+', label: 'Acres deployed', sub: 'SWAT CAM in field' },
+  { value: '50M+', label: 'Inferences / month', sub: 'Live production scale' },
+  { value: '2026', label: 'U.S. patent', sub: 'Image-to-agronomy AI' },
+] as const
+
+export const focusAreas = [
+  'Generative AI',
+  'Computer Vision',
+  'Natural Language Processing',
+  'MLOps & Production ML',
+  'Multimodal RAG',
+  'RLHF / DPO / KTO',
+] as const
+
+export type Experience = {
+  role: string
+  company: string
+  location: string
+  period: string
+  current?: boolean
+  highlights: string[]
 }
 
-export interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  icon: string;
-  githubUrl?: string;
-  liveUrl?: string;
+export const experiences: Experience[] = [
+  {
+    role: 'Artificial Intelligence Scientist',
+    company: 'Croptimistic Technology',
+    location: 'Edmonton, Canada',
+    period: 'Apr 2024 — Present',
+    current: true,
+    highlights: [
+      "Directed end-to-end research, development, evaluation, and production deployment of large-scale ML pipelines powering SWAT CAM (Croptimistic's flagship AI product), recognized by a 2026 U.S. patent for its image-to-agronomic-data process and scaled past 1.5M+ acres of commercial deployment across western Canada.",
+      "Designed and trained SWAT CAM's core computer vision models, achieving 92% IoU on semantic segmentation of crop and weed classes, 96% IoU on row detection, and 93.5% R² on crop establishment variance regression, achieved through crop-adaptive architectures and fine-tuning strategies tuned to varying field conditions and crop types.",
+      'Built a learning-to-rank recommender that helps agronomists select optimal management-zone maps for crop fields, processing large-scale Sentinel-2 satellite imagery and topographic data through extensive feature engineering. The top-ranked recommendation matches subject-matter-expert selections 76% of the time.',
+      'Designed and shipped a multimodal RAG system over SWAT CAM outputs, combining LLM-based retrieval over tabular model results with VLM-based semantic search across millions of field images, giving agronomy subject matter experts a natural-language interface to query, compare, and triage field-level results.',
+      "Built the platform's MLOps backbone: feature store, experiment tracking, automated training pipelines, CI/CD-based model deployment, and production monitoring with feature drift and performance regression detection, turning ad-hoc model iteration into a repeatable, auditable release process.",
+    ],
+  },
+  {
+    role: 'Machine Learning Resident',
+    company: 'Alberta Machine Intelligence Institute',
+    location: 'Edmonton, Canada',
+    period: 'Sep 2023 — Apr 2024',
+    highlights: [
+      'Led applied AI research and end-to-end development for plant counting in densely-populated crop fields (a domain where individual plants are visually inseparable), taking the project from extensive literature review through rapid prototyping to first production release, achieving 87% R² on plant-density estimation from remote-sensing imagery.',
+      'Owned the full experimentation pipeline: feature extraction, correlation and dimensionality analysis, architecture exploration, systematic ablation studies, and ML performance optimization, anchoring every architectural decision in measurable evidence and translating raw remote-sensing imagery into a deployable model.',
+      'Led a cross-functional team of ML scientists, engineers, and agronomy stakeholders, driving stakeholder alignment meetings and operating a fast-prototyping discipline that enabled rapid pivots when hypotheses underperformed, compressing typical research-to-production cycles.',
+    ],
+  },
+  {
+    role: 'Machine Learning Researcher',
+    company: 'Department of Radiology, UofA Hospital',
+    location: 'Edmonton, Canada',
+    period: 'Sep 2022 — Sep 2023',
+    highlights: [
+      'Developed and deployed an end-to-end 3D volumetric segmentation pipeline using nnUNet for upper airway and adenoid structures in CT scans (~500 scans); supervised clinical annotation workflows with radiologists to ensure label quality and clinical alignment.',
+      'Built a gradient boosting classifier on extracted 3D geometric features to grade anatomical severity and recommend surgical intervention, delivered as a production clinical decision support tool achieving 78% IoU and 72% Dice score on segmentation.',
+    ],
+  },
+  {
+    role: 'Data Scientist',
+    company: 'Journey Education',
+    location: 'Edmonton, Canada',
+    period: 'Jan 2022 — Sep 2022',
+    highlights: [
+      'Built NLP and behavioral analytics pipelines combining BERT-based sentiment analysis with HCI signals (typing latency, time-on-page, interaction sequences) to surface UX friction patterns, turning qualitative feedback into structured, comparable metrics that drove product and UI/UX decisions.',
+    ],
+  },
+  {
+    role: 'Machine Learning Researcher',
+    company: 'METU',
+    location: 'Cyprus',
+    period: 'Oct 2018 — Jan 2022',
+    highlights: [
+      'Researched and designed an end-to-end ML pipeline for autism detection integrating time-series eye-tracking data from web-based sessions, achieving 91.6% F1-score in classifying adults with high-functioning autism; work published in peer-reviewed journals.',
+      'Awarded the Google Scholarship for Web Accessibility at the W4A (Web for All) Conference, 2021, recognizing ML research advancing web accessibility for users on the autism spectrum.',
+    ],
+  },
+]
+
+export type Project = {
+  title: string
+  subtitle: string
+  period: string
+  status: 'Ongoing' | 'In Testing' | 'Shipped'
+  description: string
+  highlights: string[]
+  tags: string[]
 }
-
-export const jobs: Job[] = [
-  {
-    title: "AI & Data Scientist",
-    company: "Croptimistic Technology",
-    location: "Edmonton, Canada",
-    period: "Apr 2024 – Present",
-    description: [
-      "Lead Development of large-scale multi-modal machine learning systems for precision agriculture applications",
-      "Productionized end-to-end ML pipelines processing 50M+ images monthly, supporting 288K+ daily inferences",
-      "Achieved 91–93% precision across various multi-modal ML tasks through systematic experimentation and optimization",
-      "Implemented scalable, cloud-native MLOps workflows using Python, PyTorch, Docker, MLflow, and AWS/GCP, following industry-standard practices for model versioning, deployment, and monitoring",
-      "Collaborated with cross-functional teams to translate complex multimodal data into actionable insights",
-    ],
-  },
-  {
-    title: "Machine Learning Scientist",
-    company: "Alberta Machine Intelligence Institute",
-    location: "Edmonton, Canada",
-    period: "Sep 2023 – Apr 2024",
-    description: [
-      "Developed object density estimation models to support data-driven decision-making and forecasting",
-      "Built end-to-end proof-of-concept pipelines and transitioned models into production-ready systems",
-      "Collaborated with cross-functional teams across data engineering, modeling, and deployment workflows",
-      "Achieved 87% R² and RMSE of 3.56 through model optimization and feature engineering",
-      "Enabled new data-driven revenue opportunities and improved operational forecasting capabilities",
-    ],
-  },
-  {
-    title: "Machine Learning Researcher",
-    company: "Department of Radiology, UofA Hospital",
-    location: "Edmonton, Canada",
-    period: "Jan 2023 – Sep 2023",
-    description: [
-      "Adapted and applied deep learning models for upper airway and adenoid segmentation in medical imaging data",
-      "Developed and evaluated computer vision pipelines for anatomical structure segmentation in clinical datasets",
-      "Collaborated with cross-disciplinary clinical teams to align model development with medical requirements",
-      "Contributed to the annotation and curation of large-scale medical image datasets for supervised ML workflows",
-    ],
-  },
-  {
-    title: "Data Scientist",
-    company: "Journey Education",
-    location: "Edmonton, Canada",
-    period: "Jan 2022 – Jan 2023",
-    description: [
-      "Led data collection, preprocessing, and QA workflows, including outlier detection and data validation",
-      "Developed sentiment analysis pipelines to extract actionable insights from customer feedback",
-      "Applied natural language processing techniques to support product and user-experience decision-making",
-      "Delivered live coding sessions and technical workshops to communicate practical ML workflows",
-    ],
-  },
-];
-
-export const skillCategories: SkillCategory[] = [
-  {
-    name: "Programming & GPU Computing",
-    icon: "",
-    skills: ["Python", "SQL", "C++", "CUDA"],
-  },
-  {
-    name: "MLOps & Cloud",
-    icon: "",
-    skills: ["Docker", "Airflow", "MLflow", "Kubeflow", "CI/CD", "AWS", "GCP", "Azure", "Git"],
-  },
-  {
-    name: "Natural Language Processing",
-    icon: "",
-    skills: ["Text Processing", "Embeddings", "Transformer Models", "LLMs"],
-  },
-  {
-    name: "Computer Vision",
-    icon: "",
-    skills: ["Object Detection", "Image Segmentation", "Image Classification", "VLMs"],
-  },
-  {
-    name: "Data Science & Analytics",
-    icon: "",
-    skills: ["Data Wrangling", "Data Visualization", "Statistical Modeling", "Feature Engineering"],
-  },
-  {
-    name: "ML Libraries & Frameworks",
-    icon: "",
-    skills: ["PyTorch", "TensorFlow", "NumPy", "SciPy", "scikit-learn", "OpenAI Gym (RL)", "LangChain"],
-  },
-];
 
 export const projects: Project[] = [
   {
-    title: "Precision Agriculture ML Platform",
+    title: 'Adaptive AI Broadcasting Platform',
+    subtitle: 'Multilingual content generation with RLHF-based voice learning',
+    period: '2026 — Ongoing',
+    status: 'Ongoing',
     description:
-      "Production-grade predictive analytics system processing 50M+ records monthly with 288K+ daily inferences. Built with Python, AWS/GCP, Docker, and MLflow.",
-    tech: ["Python", "AWS", "GCP", "MLflow", "Docker"],
-    icon: "",
+      "A GenAI content-creation engine that turns creator text into branded multi-format content across Persian and English, learning each creator's voice over time through online preference learning.",
+    highlights: [
+      'Architecting agentic workflows with RAG-based brand and reference retrieval over creator assets.',
+      'Continuously generating labeled preference pairs from product usage to fine-tune per-creator "voice models" via PPO, DPO, and KTO.',
+      'AI analytics layer over post-performance KPIs that recommends content formats with LLM-generated, data-grounded rationale — and conversational follow-up so creators can interrogate, challenge, and refine guidance.',
+    ],
+    tags: ['Agentic AI', 'RAG', 'RLHF', 'PPO / DPO / KTO', 'Multilingual', 'Analytics'],
   },
   {
-    title: "Advanced Regression Models",
+    title: 'Mental Health Tracker',
+    subtitle: 'Local-first agentic AI for CBT support',
+    period: '2025 — In Testing',
+    status: 'In Testing',
     description:
-      "Developed end-to-end analytical pipelines achieving 87% R² and RMSE of 3.56 through advanced feature engineering and regression techniques.",
-    tech: ["Python", "Feature Engineering", "Statistical Modeling"],
-    icon: "",
+      'A local-first agentic AI system that conducts CBT-aligned therapeutic conversations, with longitudinal mood tracking, safety guardrails, and evaluation pipelines keeping outputs clinically grounded.',
+    highlights: [
+      'RAG over evidence-based clinical content with safety guardrails and evaluation pipelines for clinically grounded, emotionally appropriate output.',
+      "Longitudinal mood and emotional-state tracker that builds per-user history across sessions, detecting mood drift and tailoring each session's focus.",
+      'Fine-tuned Qwen and LLaMA 3.2 with QLoRA on CBT dialogue datasets; containerized training and inference with full MLOps practices.',
+    ],
+    tags: ['Agentic AI', 'QLoRA', 'Qwen', 'LLaMA 3.2', 'Local-First', 'Guardrails', 'CBT'],
+  },
+]
+
+export type Publication = {
+  authors: string
+  year: string
+  title: string
+  venue: string
+}
+
+export const publications: Publication[] = [
+  {
+    authors: 'Khalaji, E. et al.',
+    year: '2023',
+    title: 'Effects of data preprocessing on detecting autism using web-based eye-tracking',
+    venue: 'Behaviour & Information Technology',
   },
   {
-    title: "Medical Imaging Computer Vision",
-    description:
-      "Developed and validated predictive computer vision models for large-scale medical imaging datasets to support clinical research and insights.",
-    tech: ["Computer Vision", "Deep Learning", "Medical Imaging"],
-    icon: "",
+    authors: 'Qadir, Z., Khalaji, E. et al.',
+    year: '2021',
+    title: 'Predicting energy output of hybrid PV–wind systems using feature selection',
+    venue: 'Energy Reports',
   },
-];
+  {
+    authors: 'Rashid, H., Khalaji, E. et al.',
+    year: '2020',
+    title: 'Fault prediction of wind turbine gearbox based on SCADA data and ML',
+    venue: 'ACIT Conference',
+  },
+]
 
-export const contactInfo = {
-  name: "Erfan Khalaji",
-  location: "Edmonton, AB, Canada",
-  phone: "780-982-2848",
-  email: "ekhalaji@gmail.com",
-  linkedin: "https://www.linkedin.com/in/erfan-khalaji/",
-  github: "https://github.com/erfan-khalaji",
-  resume: "/Erfan_Khalaji_Data_Scientist_Resume_BCAA.pdf",
-};
-
-// Helper functions to mask sensitive information
-export function maskPhone(phone: string): string {
-  // Format: 780-***-2848
-  const parts = phone.split('-');
-  if (parts.length === 3) {
-    return `${parts[0]}-***-${parts[2]}`;
-  }
-  return phone.replace(/\d{3}-\d{3}/, '***-***');
+export type SkillGroup = {
+  category: string
+  description: string
+  items: string[]
 }
 
-export function maskEmail(email: string): string {
-  // Format: ekhal***@gmail.com
-  const [localPart, domain] = email.split('@');
-  if (localPart.length > 4) {
-    const visible = localPart.substring(0, 4);
-    return `${visible}***@${domain}`;
-  }
-  return `***@${domain}`;
-}
+export const skillGroups: SkillGroup[] = [
+  {
+    category: 'Generative AI',
+    description: 'Frameworks and tooling for building production LLM systems.',
+    items: [
+      'LangChain',
+      'LlamaIndex',
+      'Hugging Face (PEFT, TRL)',
+      'Ollama',
+      'FAISS',
+      'Chroma',
+      'sentence-transformers',
+      'CLIP',
+      'DeepEval',
+    ],
+  },
+  {
+    category: 'ML Libraries & Frameworks',
+    description: 'Core stack for model development and experimentation.',
+    items: ['PyTorch', 'TensorFlow', 'XGBoost', 'Scikit-Learn', 'NumPy', 'SciPy', 'Hugging Face', 'Keras'],
+  },
+  {
+    category: 'Natural Language Processing',
+    description: 'Transformer-based language and retrieval systems.',
+    items: ['Transformer models', 'Embeddings', 'Text processing', 'Information retrieval'],
+  },
+  {
+    category: 'Computer Vision',
+    description: 'From classical CV to modern segmentation pipelines.',
+    items: ['Object detection', 'Image segmentation', '3D volumetric segmentation'],
+  },
+  {
+    category: 'MLOps & Cloud',
+    description: 'Shipping models to production and keeping them healthy.',
+    items: ['Docker', 'Kubernetes', 'Airflow', 'MLflow', 'CI/CD', 'AWS', 'GCP', 'Azure'],
+  },
+  {
+    category: 'Programming & Engineering',
+    description: 'Languages and engineering tools.',
+    items: ['Python', 'C++', 'SQL', 'FastAPI', 'Git', 'CUDA'],
+  },
+]
 
-export const professionalSummary =
-  "Applied AI Scientist with 7+ years of experience designing, optimizing, and deploying production-grade machine learning systems, including Vision-Language Models (VLMs), Large Language Models (LLMs), and Reinforcement Learning from Human Feedback (RLHF). Strong expertise in Python and cloud platforms (AWS, GCP), with a focus on building trustworthy AI solutions that convert complex multimodal data into actionable insights across agriculture and biomedicine.";
+export const education = [
+  {
+    degree: 'MSc in Computing Science',
+    institution: 'University of Alberta',
+    location: 'Edmonton, Canada',
+    detail: 'GPA: 3.9 / 4.0',
+  },
+]
 
-export const experienceBreakdown = {
-  total: "7+",
-  industry: "4+",
-  academia: "3",
-};
-
-export interface Education {
-  degree: string;
-  institution: string;
-  location: string;
-  gpa?: string;
-}
-
-export const education: Education = {
-  degree: "MSc in Computing Science",
-  institution: "University of Alberta",
-  location: "Edmonton, AB, Canada",
-  gpa: "3.9 / 4.0",
-};
-
-export const personalInterests = {
-  hobbies: ["Photography", "Chess", "Basketball", "Birdwatching", "Hiking"],
-  mission: "I love AI as a way of impacting future generations, helping vulnerable groups like animals and the planet, doing high impact work. I'm that kind of person."
-};
-
+export const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#publications', label: 'Publications' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact', label: 'Contact' },
+] as const

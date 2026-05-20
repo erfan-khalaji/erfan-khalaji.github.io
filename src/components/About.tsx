@@ -1,67 +1,83 @@
-import Image from 'next/image'
-import { professionalSummary, experienceBreakdown, personalInterests } from '@/lib/data'
+'use client'
+
+import { motion } from 'framer-motion'
+import { Award, BookOpen, Globe2, Sparkles } from 'lucide-react'
+import Section from './Section'
+import { profile } from '@/lib/data'
+
+const easeOut = [0.22, 1, 0.36, 1] as const
+
+const pillars = [
+  {
+    icon: Sparkles,
+    title: 'Generative AI in production',
+    body: 'From multimodal RAG over millions of field images to RLHF-based voice models, shipping LLM systems that learn from real user behavior.',
+  },
+  {
+    icon: Globe2,
+    title: 'Research that meets the field',
+    body: 'Production deployments span agriculture, healthcare, and accessibility — applying ML where research rigor and real-world impact both matter.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Peer-reviewed work',
+    body: 'Published research across web accessibility, autism detection, and renewable energy forecasting, anchored in measurable evidence.',
+  },
+  {
+    icon: Award,
+    title: 'Recognition',
+    body: 'Google Scholarship for Web Accessibility (W4A 2021), and contributor to a 2026 U.S. patent-awarded AI product.',
+  },
+] as const
 
 export default function About() {
   return (
-    <section id="about" className="section">
-      <div className="container">
-        <h2 className="section-title">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-          {/* Left Column - Content */}
-          <div>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              My expertise spans the full data science lifecycle, from exploratory data analysis and feature engineering to 
-              model deployment and monitoring. With strong proficiency in Python and cloud platforms (AWS, GCP), I'm passionate 
-              about translating complex analytical findings into clear, actionable insights for both technical and 
-              non-technical stakeholders.
-            </p>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              I believe AI represents a form of evolution we must embrace to seek meaning in the universe. 
-              Through AI, we have the opportunity to heal our planet, protect vulnerable groups including 
-              different animal species, women, children, and nature itself, and create solutions that address 
-              the most pressing challenges facing our world. This belief drives my work in developing AI systems 
-              that not only solve technical problems but contribute to a more sustainable and equitable future.
-            </p>
+    <Section
+      id="about"
+      eyebrow="About"
+      title="ML systems that ship and stay shipped."
+      lede="I lead end-to-end ML work — from problem framing and research, through model design, to production deployment and monitoring."
+    >
+      <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: easeOut }}
+          className="space-y-5 text-base leading-relaxed text-ink-50 sm:text-lg"
+        >
+          <p>{profile.summary}</p>
+          <p className="text-ink-100">
+            Currently leading AI at{' '}
+            <span className="text-white">Croptimistic Technology</span>, where my models
+            power <span className="text-white">SWAT CAM</span> across western Canada.
+            Outside of work, I&apos;m building agentic systems for content creators and
+            mental-health support — putting GenAI in the hands of people who need it.
+          </p>
+        </motion.div>
 
-            {/* Experience Breakdown */}
-            <div className="bg-primary-50 rounded-lg p-6 mb-8 border border-primary-100">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-700 mb-1">
-                    {experienceBreakdown.total}
-                  </div>
-                  <div className="text-sm text-gray-700 font-medium">Years Total Experience</div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          {pillars.map((p, i) => {
+            const Icon = p.icon
+            return (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, ease: easeOut, delay: i * 0.05 }}
+                className="card card-hover"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-accent-300">
+                  <Icon className="h-4 w-4" aria-hidden />
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-700 mb-1">
-                    {experienceBreakdown.industry}
-                  </div>
-                  <div className="text-sm text-gray-700 font-medium">Years in Industry</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-700 mb-1">
-                    {experienceBreakdown.academia}
-                  </div>
-                  <div className="text-sm text-gray-700 font-medium">Years in Academia</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Image */}
-          <div className="flex justify-center md:justify-end">
-            <div className="relative w-full max-w-md h-96 rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/about-photo.jpg"
-                alt="Erfan Khalaji working"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+                <h3 className="mt-4 text-base font-semibold text-white">{p.title}</h3>
+                <p className="mt-1.5 text-sm text-ink-100">{p.body}</p>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
-

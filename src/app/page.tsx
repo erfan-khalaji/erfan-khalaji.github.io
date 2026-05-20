@@ -2,27 +2,28 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Experience from '@/components/Experience'
-import Skills from '@/components/Skills'
 import Projects from '@/components/Projects'
+import Publications from '@/components/Publications'
+import Skills from '@/components/Skills'
 import Education from '@/components/Education'
-import FreeTime from '@/components/FreeTime'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Education />
-      <FreeTime />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Publications />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }
-

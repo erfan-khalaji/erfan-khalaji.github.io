@@ -34,3 +34,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local resume source (served copy lives in /public/)
+/Erfan_Khalaji_Resume.docx.pdf
+
