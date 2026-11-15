@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erfan Khalaji</title>
+<meta name="description" content="Erfan Khalaji, applied AI scientist. Computer vision, generative AI and ML systems from research prototype to production.">
+<meta property="og:title" content="Erfan Khalaji">
+<meta property="og:description" content="Applied AI scientist. Computer vision, generative AI and ML systems from research prototype to production.">
+<meta property="og:type" content="website">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%230b0c0e'/><text x='3' y='12' font-family='monospace' font-size='11' fill='%237fb2e5'>❯</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --fg: #c6cbd2;
+    --hi: #f3f5f7;
+    --dim: #747b86;
+    --rule: #1e2227;
+    --ink: #7fb2e5;
+    --ink-soft: rgba(127, 178, 229, 0.14);
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f5f1;
+    --fg: #2b2e33;
+    --hi: #0e0f11;
+    --dim: #7b8088;
+    --rule: #dcd9d0;
+    --ink: #1f5f99;
+    --ink-soft: rgba(31, 95, 153, 0.10);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f6f5f1;
+      --fg: #2b2e33;
+      --hi: #0e0f11;
+      --dim: #7b8088;
+      --rule: #dcd9d0;
+      --ink: #1f5f99;
+      --ink-soft: rgba(31, 95, 153, 0.10);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 14px/1.7 var(--mono);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--ink); color: var(--bg); }
+  a { color: var(--hi); text-decoration: underline; text-decoration-color: var(--dim); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--bg); background: var(--ink); text-decoration: none; }
+  b, strong { color: var(--hi); font-weight: 600; }
+  .dim { color: var(--dim); }
+  .ink { color: var(--ink); }
+
+  .wrap { max-width: 78ch; margin: 0 auto; padding: 0 16px 48px; }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .wrap { display: flex; align-items: center; gap: 14px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; }
+  nav .prompt { color: var(--ink); }
+  nav a { text-decoration: none; color: var(--dim); padding: 0 2px; }
+  nav a:hover { color: var(--bg); background: var(--ink); }
+  nav .spacer { flex: 1; }
+  nav button {
+    font: inherit; color: var(--dim); background: none; border: 1px solid var(--rule);
+    border-radius: 3px; padding: 1px 8px; cursor: pointer;
+  }
+  nav button:hover { color: var(--hi); border-color: var(--dim); }
+
+  /* header */
+  header { padding: 44px 0 8px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+  header h1 { margin: 0; font-size: 22px; font-weight: 600; color: var(--hi); letter-spacing: -0.01em; }
+  header .title { margin: 2px 0 14px; color: var(--ink); }
+  header p { margin: 0 0 14px; max-width: 64ch; }
+  .photo {
+    width: 104px; height: 112px; object-fit: cover; object-position: 50% 10%;
+    border-radius: 4px; border: 1px solid var(--rule);
+    filter: grayscale(1) contrast(1.05); transition: filter .25s ease;
+  }
+  .photo:hover { filter: none; }
+  .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .links span { color: var(--dim); }
+
+  /* facts block */
+  .facts {
+    margin: 22px 0 8px; padding: 14px 16px;
+    border: 1px solid var(--rule); border-radius: 4px;
+    display: grid; grid-template-columns: max-content 1fr; gap: 2px 18px;
+  }
+  .facts dt { color: var(--ink); margin: 0; }
+  .facts dd { margin: 0; }
+
+  /* sections */
+  section { padding-top: 40px; }
+  h2 { font-size: 14px; font-weight: 600; color: var(--hi); margin: 0 0 16px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+  h2::before { content: "## "; color: var(--ink); font-weight: 500; }
+  h2 a { text-decoration: none; }
+
+  .entry { margin-bottom: 26px; }
+  .entry-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .entry-head h3 { margin: 0; font-size: 14px; font-weight: 600; color: var(--hi); }
+  .entry-head .when { color: var(--dim); white-space: nowrap; }
+  .entry .where { color: var(--dim); margin: 0 0 8px; }
+  .entry ul { margin: 0; padding-left: 0; list-style: none; }
+  .entry li { position: relative; padding-left: 18px; margin: 4px 0; }
+  .entry li::before { content: "–"; position: absolute; left: 2px; color: var(--ink); }
+
+  .about ul { margin: 0; padding-left: 0; list-style: none; }
+  .about li { position: relative; padding-left: 18px; margin: 6px 0; }
+  .about li::before { content: "›"; position: absolute; left: 2px; color: var(--ink); }
+
+  .skills { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 0; }
+  .skills dt { color: var(--ink); }
+  .skills dd { margin: 0; }
+
+  .pubs li { margin: 0 0 10px; padding-left: 18px; position: relative; }
+  .pubs li::before { content: "[" counter(pub) "]"; counter-increment: pub; position: absolute; left: 0; color: var(--ink); font-size: 12px; top: 1px; }
+  .pubs { counter-reset: pub; list-style: none; padding: 0; margin: 0; }
+  .pubs li::before { left: -2px; }
+  .pubs li { padding-left: 32px; }
+  .pubs i { color: var(--hi); font-style: italic; }
+
+  .edu li { margin: 4px 0; padding-left: 18px; position: relative; list-style: none; }
+  .edu li::before { content: "–"; position: absolute; left: 2px; color: var(--ink); }
+  .edu { padding: 0; margin: 0; }
+
+  footer { margin-top: 56px; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--dim); font-size: 12.5px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: var(--dim); }
+
+  kbd { font: inherit; color: var(--hi); border: 1px solid var(--rule); border-radius: 3px; padding: 0 5px; }
+
+  @media (max-width: 640px) {
+    header { grid-template-columns: 1fr; }
+    header img { order: -1; }
+    .facts, .skills { grid-template-columns: 1fr; gap: 0; }
+    .facts dd, .skills dd { margin: 0 0 8px 0; }
+    .entry-head .when { white-space: normal; }
+    nav .wrap { gap: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .photo { transition: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="prompt">❯</span>
+    <a href="#about">about</a>
+    <a href="#work">work</a>
+    <a href="#projects">projects</a>
+    <a href="#papers">papers</a>
+    <a href="#skills">skills</a>
+    <a href="#education">education</a>
+    <a href="#contact">contact</a>
+    <span class="spacer"></span>
+    <button id="theme" type="button" aria-label="Toggle colour theme" title="Toggle theme (t)">theme</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>Erfan Khalaji</h1>
+    <p class="title">Applied AI Scientist</p>
+    <p>I build machine learning systems and take them all the way to production: computer vision, generative AI and the evaluation and platform work that makes them trustworthy. Currently leading ML for a patented sprayer-mounted camera system running on 1.5M+ acres.</p>
+    <ul class="links">
+      <li><span>github</span> <a href="https://github.com/erfan-khalaji">erfan-khalaji</a></li>
+      <li><span>linkedin</span> <a href="https://www.linkedin.com/in/erfan-khalaji">erfan-khalaji</a></li>
+      <li><span>scholar</span> <a href="https://scholar.google.com/scholar?q=author%3A%22Erfan+Khalaji%22">publications</a></li>
+      <li><span>email</span> <a href="mailto:ekhalaji@gmail.com">ekhalaji@gmail.com</a></li>
+    </ul>
+  </div>
+  <img class="photo" src="assets/photo.jpg" alt="Erfan Khalaji" width="104" height="112">
+</header>
+
+<dl class="facts" aria-label="Quick facts">
+  <dt>role</dt><dd>AI Scientist, Croptimistic Technology</dd>
+  <dt>focus</dt><dd>computer vision · foundation-model distillation · evaluation · GenAI systems</dd>
+  <dt>stack</dt><dd>Python, PyTorch, C++, CUDA · FastAPI · Docker, AWS · MLflow, DVC</dd>
+  <dt>scale</dt><dd>50M+ inferences/month · 9 crops · 1.5M+ acres</dd>
+  <dt>now</dt><dd>GPU kernels and distributed training, on the side</dd>
+  <dt>location</dt><dd>Edmonton, Canada · open to remote</dd>
+</dl>
+
+<section id="about" class="about">
+  <h2>about</h2>
+  <ul>
+    <li><b>4+ years in industry, 3+ in research.</b> Shipped ML in agriculture, radiology and accessibility, and published in peer-reviewed journals along the way.</li>
+    <li><b>From hand-crafted features to foundation models.</b> Took one production vision stack from colour and shape features with gradient boosting to distilled DINOv3 segmentation across 9 crops.</li>
+    <li><b>Evaluation is the product.</b> Leakage-free splits, ablations, bootstrap confidence intervals and paired tests. I have retracted my own inflated numbers and would rather know.</li>
+    <li><b>I own the whole path.</b> Data and annotation, training, platform, release, model cards and the architecture decision records that explain why.</li>
+  </ul>
+</section>
+
+<section id="work">
+  <h2>work</h2>
+
+  <div class="entry">
+    <div class="entry-head"><h3>AI Scientist · Croptimistic Technology</h3><span class="when">Apr 2024 – present</span></div>
+    <p class="where">Edmonton, Canada. Lead ML for SWAT CAM, a sprayer-mounted camera system for in-season crop analytics, covered by a 2026 U.S. patent.</p>
+    <ul>
+      <li>Own the ML roadmap for a system deployed on <b>1.5M+ acres</b> at <b>50M+ inferences/month</b>, from research through gated release.</li>
+      <li>Moved the vision stack from hand-crafted features to transformer and DINOv3 backbones: segmentation, plant and dense counting, detection and row detection (<b>96% IoU</b>) for 9 crops plus weed detection.</li>
+      <li>Ran a 14-architecture segmentation benchmark that lifted boundary F1 <b>0.87 → 0.94</b> and halved weed confusion; ablations showed the training recipe mattered more than architecture, so production got a cheaper model at equal accuracy.</li>
+      <li>Distilled a 343M-parameter DINOv3 teacher into a deployable student; used SAM3 as a labelling teacher; <b>1.28×</b> inference speedup with torch.compile.</li>
+      <li>Rebuilt evaluation on leakage-free splits (ORB + RANSAC grouping of same-ground frames), exposing a 0.967 Dice inflated by near-duplicates; added weed-aware metrics, bootstrap CIs, paired tests and frozen hashed test sets.</li>
+      <li>Built the ML platform (FastAPI, React, SQLAlchemy) for annotation, training, evaluation and model promotion, with content-hashed data and models on S3, MLflow/DVC tracking and Docker/SQS inference workers.</li>
+      <li>Built a learning-to-rank recommender for management-zone maps from Sentinel-2 and topography (top pick matches experts <b>76%</b> of the time) and a multimodal RAG over model outputs and millions of field images.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><h3>ML Resident · Amii</h3><span class="when">Sep 2023 – Apr 2024</span></div>
+    <p class="where">Alberta Machine Intelligence Institute, Edmonton. Applied research residency placed with an agtech partner.</p>
+    <ul>
+      <li>Led plant counting for densely populated crops where plants are visually inseparable, from literature review to first production release: <b>87% R²</b> on plant density from remote-sensing imagery.</li>
+      <li>Owned the experimentation pipeline and ran a cross-functional team of ML scientists, engineers and agronomists with a fast-prototyping loop.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><h3>ML Researcher · UAlberta Hospital, Radiology</h3><span class="when">Sep 2022 – Sep 2023</span></div>
+    <p class="where">Edmonton, Canada.</p>
+    <ul>
+      <li>Built and deployed a 3D volumetric segmentation pipeline (nnU-Net) for upper-airway and adenoid structures on ~500 CT scans, supervising annotation with radiologists.</li>
+      <li>Gradient-boosting classifier on 3D geometric features to grade severity and recommend surgery, shipped as a clinical decision-support tool.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><h3>Data Scientist · Journey Education</h3><span class="when">Jan 2022 – Sep 2022</span></div>
+    <p class="where">Edmonton, Canada.</p>
+    <ul>
+      <li>NLP and behavioural analytics combining BERT sentiment with HCI signals (typing latency, interaction sequences) to surface UX friction for product decisions.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><h3>ML Researcher · Middle East Technical University</h3><span class="when">Oct 2018 – Jan 2022</span></div>
+    <p class="where">Northern Cyprus campus.</p>
+    <ul>
+      <li>ML pipeline for autism detection from web-based eye-tracking time series (<b>91.6% F1</b> for adults with high-functioning autism); published, and awarded the <b>Google Scholarship for Web Accessibility</b> (W4A 2021).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>projects</h2>
+
+  <div class="entry">
+    <div class="entry-head"><h3>Adaptive AI broadcasting platform</h3><span class="when">2026 – ongoing</span></div>
+    <p class="where">Multilingual content engine with per-creator voice models.</p>
+    <ul>
+      <li>Agentic workflows plus RAG-based brand retrieval turn creator text into branded Persian and English content; usage produces preference pairs for PPO, DPO and KTO fine-tuning of per-creator models.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><h3>Mental health tracker, CBT support</h3><span class="when">2025 – in testing</span></div>
+    <p class="where">Local-first GenAI architecture.</p>
+    <ul>
+      <li>CBT-aligned conversations with RAG over clinical content, safety guardrails, evaluation pipelines and a longitudinal mood tracker; Qwen and Llama 3.2 fine-tuned with QLoRA.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head"><h3>kernel-forge</h3><span class="when">2026 – ongoing</span></div>
+    <p class="where">Learning log: GPU kernels, C++ and ML fundamentals, worked from first principles.</p>
+  </div>
+</section>
+
+<section id="papers">
+  <h2>papers</h2>
+  <ol class="pubs">
+    <li>Khalaji, E. et al. (2023). <i>Effects of data preprocessing on detecting autism using web-based eye-tracking.</i> Behaviour &amp; Information Technology.</li>
+    <li>Khalaji, E. (2021). <i>A machine learning approach for detecting high-functioning autism using web-based eye-tracking data.</i> MSc thesis, Middle East Technical University.</li>
+    <li>Qadir, Z., Khalaji, E. et al. (2021). <i>Predicting energy output of hybrid PV–wind systems using feature selection.</i> Energy Reports.</li>
+    <li>Rashid, H., Khalaji, E. et al. (2020). <i>Fault prediction of wind turbine gearbox based on SCADA data and ML.</i> ACIT Conference.</li>
+  </ol>
+</section>
+
+<section id="skills">
+  <h2>skills</h2>
+  <dl class="skills">
+    <dt>vision</dt><dd>segmentation, detection, dense counting, row detection, 3D volumetric segmentation, distillation, ORB/RANSAC, OpenCV</dd>
+    <dt>models</dt><dd>DINOv2/v3, ViT, SAM3, ConvNeXt, SegFormer, DPT, U-Net, nnU-Net, RF-DETR, YOLO, FCOS, XGBoost, LightGBM</dd>
+    <dt>frameworks</dt><dd>PyTorch, timm, Hugging Face (PEFT, TRL), TensorFlow, scikit-learn, torch.compile, TensorRT</dd>
+    <dt>genai</dt><dd>LLMs, VLMs, multimodal RAG, agentic workflows, RLHF (PPO, DPO, KTO), QLoRA, LangChain, LlamaIndex, FAISS</dd>
+    <dt>evaluation</dt><dd>ablations, leakage-free splits, bootstrap CIs, paired significance tests, slice-based error analysis</dd>
+    <dt>platform</dt><dd>Docker, Kubernetes, AWS (S3, SQS), Vertex AI, MLflow, DVC, Airflow, CI/CD, FastAPI, SQLAlchemy, pytest, uv</dd>
+    <dt>languages</dt><dd>Python, C++, SQL, TypeScript, CUDA</dd>
+  </dl>
+</section>
+
+<section id="education">
+  <h2>education</h2>
+  <ul class="edu">
+    <li><b>MSc Computing Science</b>, University of Alberta · GPA 3.9/4.0</li>
+    <li><b>MSc Computer Engineering</b>, Middle East Technical University · GPA 3.7/4.0</li>
+    <li><b>BSc Software Engineering</b>, Arak University</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>contact</h2>
+  <p>Email is best: <a href="mailto:ekhalaji@gmail.com">ekhalaji@gmail.com</a>. I read everything and reply to anything specific.</p>
+</section>
+
+<footer>
+  <span>hand-written html, no framework · press <kbd>t</kbd> to switch theme</span>
+  <span>updated 2026-11-15 · <a href="https://github.com/erfan-khalaji/erfan-khalaji.github.io">source</a></span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var key = 'theme';
+  function stored() { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function store(v) { try { localStorage.setItem(key, v); } catch (e) {} }
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  function apply(t) { root.setAttribute('data-theme', t); store(t); }
+  var s = stored(); if (s === 'light' || s === 'dark') root.setAttribute('data-theme', s);
+  function toggle() { apply(current() === 'dark' ? 'light' : 'dark'); }
+  document.getElementById('theme').addEventListener('click', toggle);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 't' && !e.metaKey && !e.ctrlKey && !e.altKey && !/input|textarea/i.test(e.target.tagName)) toggle();
+  });
+})();
+</script>
+</body>
+</html>
